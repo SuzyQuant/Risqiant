@@ -45,7 +45,7 @@ window.NProgress = NProgress;
 // Add global error boundary to catch and handle errors gracefully
 window.addEventListener('error', event => {
   // Only log to console in development
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     console.error({
       message: event.message,
       filename: event.filename,
@@ -56,7 +56,7 @@ window.addEventListener('error', event => {
   }
 
   // Could send to error tracking service in production
-  if (process.env.NODE_ENV === 'production') {
+  if (import.meta.env.PROD) {
     // Example: sendErrorToService(event.error);
   }
 });
@@ -65,7 +65,7 @@ window.addEventListener('error', event => {
 window.moduleLoadTimes = new Map();
 
 // Console logging in development only
-if (process.env.NODE_ENV === 'development') {
+if (import.meta.env.DEV) {
   const originalLog = console.log;
   const originalError = console.error;
   const originalWarn = console.warn;
@@ -179,7 +179,7 @@ window.loadModule = async function (moduleName, showLoading = true) {
 
     return module;
   } catch (error) {
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
     }
     return null;
   } finally {
@@ -198,7 +198,7 @@ window.preloadModules = async function (moduleNames) {
 
 // Debug utility to show module loading stats (development only)
 window.getModuleStats = function () {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
 
     Array.from(window.moduleLoadTimes.entries())
       .sort((a, b) => b[1] - a[1])

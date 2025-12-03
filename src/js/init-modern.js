@@ -82,7 +82,7 @@ async function initializeDatePickers() {
         return;
       }
     } catch (error) {
-      if (process.env.NODE_ENV === 'development') {
+      if (import.meta.env.DEV) {
         console.error('Failed to load forms module for date pickers:', error);
       }
       return;
@@ -105,7 +105,7 @@ async function initializeDatePickers() {
           }
         });
       } catch (error) {
-        if (process.env.NODE_ENV === 'development') {
+        if (import.meta.env.DEV) {
           console.error('Failed to initialize date picker:', error);
         }
       }
@@ -433,7 +433,7 @@ async function initializeModernComponents() {
 
     // DataTables now handled by modern tables module (jQuery-free)
   } catch (error) {
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.error('Failed to initialize modern components:', error);
     }
   }

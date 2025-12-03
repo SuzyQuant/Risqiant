@@ -7,11 +7,18 @@ import './utils/security.js';
 const EasingFunctions = {
   easeOutElastic: function (t, b, c, d) {
     let s = 1.70158; let p = 0; let a = c;
-    if (t === 0) return b;
-    if ((t /= d) === 1) return b + c;
-    if (!p) p = d * 0.3;
+    if (t === 0) {
+      return b;
+    }
+    if ((t /= d) === 1) {
+      return b + c;
+    }
+    if (!p) {
+      p = d * 0.3;
+    }
     if (a < Math.abs(c)) {
-      a = c; s = p / 4;
+      a = c;
+      s = p / 4;
     } else {
       s = p / (2 * Math.PI) * Math.asin(c / a);
     }
@@ -240,7 +247,8 @@ window.waitForLibraries = function (libraries, callback, timeout = 5000) {
       setTimeout(check, 50);
     } else {
       // Only warn in development
-      if (process.env.NODE_ENV === 'development') {
+      if (import.meta.env.DEV) {
+        console.error(
           'Timeout waiting for libraries:',
           libraries.filter(
             lib => typeof window[lib] === 'undefined' && typeof globalThis[lib] === 'undefined'

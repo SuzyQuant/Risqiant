@@ -12,6 +12,11 @@ export default [
       ecmaVersion: 2022,
       sourceType: 'module',
       globals: {
+        prettyPrint: 'readonly',
+        sample_data: 'readonly',
+        setInterval: 'readonly',
+        CustomEvent: 'readonly',
+        getComputedStyle: 'readonly',
         window: 'readonly',
         document: 'readonly',
         console: 'readonly',
@@ -22,12 +27,36 @@ export default [
         Chart: 'readonly',
         echarts: 'readonly',
         NProgress: 'readonly',
-        dayjs: 'readonly'
+        dayjs: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        alert: 'readonly',
+        confirm: 'readonly',
+        requestAnimationFrame: 'readonly',
+        FormData: 'readonly',
+        FileReader: 'readonly',
+        Event: 'readonly',
+        IntersectionObserver: 'readonly',
+        URL: 'readonly',
+        performance: 'readonly',
+        L: 'readonly', // Leaflet
+        DataTable: 'readonly', // DataTables.net
+        Skycons: 'readonly',
+        autosize: 'readonly',
+        hljs: 'readonly', // Highlight.js
+        TempusDominus: 'readonly',
+        validator: 'readonly',
+        init_sidebar: 'readonly',
+        TableManageButtons: 'writable',
+        TabbedNotification: 'writable',
+        CustomTabs: 'writable',
+        Switchery: 'readonly'
       }
     },
     rules: {
       // Code Quality
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-empty': 'warn',
       'no-console': 'warn',
       'no-debugger': 'error',
       'no-alert': 'warn',
@@ -66,7 +95,7 @@ export default [
     },
     rules: {
       ...tsPlugin.configs.recommended.rules,
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off'

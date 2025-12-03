@@ -846,13 +846,9 @@ function init_parsley() {
   };
 
   $(/*.listen*/ 'parsley:field:validate', function () {
-    validateFront();
+    validateFront2();
   });
-  $('#demo-form2 .btn').on('click', function () {
-    $('#demo-form2').parsley().validate();
-    validateFront();
-  });
-  var validateFront = function () {
+  var validateFront2 = function () {
     if (true === $('#demo-form2').parsley().isValid()) {
       $('.bs-callout-info').removeClass('hidden');
       $('.bs-callout-warning').addClass('hidden');
@@ -861,6 +857,12 @@ function init_parsley() {
       $('.bs-callout-warning').removeClass('hidden');
     }
   };
+
+  $('#demo-form2 .btn').on('click', function () {
+    $('#demo-form2').parsley().validate();
+    validateFront2();
+  });
+
 
   try {
     hljs.initHighlightingOnLoad();
@@ -1259,7 +1261,7 @@ function init_knob() {
          },*/
     draw: function () {
       // "tron" case
-      if (this.$.data('skin') == 'tron') {
+      if (this.$.data('skin') === 'tron') {
         this.cursorExt = 0.3;
 
         var a = this.arc(this.cv), // Arc
@@ -1512,6 +1514,60 @@ function init_daterangepicker() {
     }
   };
 
+  var optionSet2 = {
+    startDate: dayjs().subtract(7, 'days'),
+    endDate: dayjs(),
+    minDate: '01/01/2012',
+    maxDate: '12/31/2025',
+    maxSpan: {
+      days: 60
+    },
+    showDropdowns: true,
+    showWeekNumbers: true,
+    timePicker: false,
+    timePickerIncrement: 1,
+    timePicker12Hour: true,
+    ranges: {
+      Today: [dayjs(), dayjs()],
+      Yesterday: [dayjs().subtract(1, 'days'), dayjs().subtract(1, 'days')],
+      'Last 7 Days': [dayjs().subtract(6, 'days'), dayjs()],
+      'Last 30 Days': [dayjs().subtract(29, 'days'), dayjs()],
+      'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
+      'Last Month': [
+        dayjs().subtract(1, 'month').startOf('month'),
+        dayjs().subtract(1, 'month').endOf('month')
+      ]
+    },
+    opens: 'left',
+    buttonClasses: 'btn btn-secondary',
+    applyButtonClasses: 'btn-primary',
+    cancelButtonClasses: 'btn-secondary',
+    locale: {
+      format: 'MM/DD/YYYY',
+      separator: ' to ',
+      applyLabel: 'Submit',
+      cancelLabel: 'Clear',
+      fromLabel: 'From',
+      toLabel: 'To',
+      customRangeLabel: 'Custom',
+      daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      monthNames: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+      ],
+      firstDay: 1
+    }
+  };
   $('#reportrange span').text(
     dayjs().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + dayjs().format('MMMM D, YYYY')
   );
@@ -1542,8 +1598,65 @@ function init_daterangepicker_right() {
     );
   };
 
+
+
   var optionSet1 = {
     startDate: dayjs().subtract(29, 'days'),
+    endDate: dayjs(),
+    minDate: '01/01/2012',
+    maxDate: '12/31/2025',
+    maxSpan: {
+      days: 60
+    },
+    showDropdowns: true,
+    showWeekNumbers: true,
+    timePicker: false,
+    timePickerIncrement: 1,
+    timePicker12Hour: true,
+    ranges: {
+      Today: [dayjs(), dayjs()],
+      Yesterday: [dayjs().subtract(1, 'days'), dayjs().subtract(1, 'days')],
+      'Last 7 Days': [dayjs().subtract(6, 'days'), dayjs()],
+      'Last 30 Days': [dayjs().subtract(29, 'days'), dayjs()],
+      'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
+      'Last Month': [
+        dayjs().subtract(1, 'month').startOf('month'),
+        dayjs().subtract(1, 'month').endOf('month')
+      ]
+    },
+    opens: 'right',
+    buttonClasses: 'btn btn-secondary',
+    applyButtonClasses: 'btn-primary',
+    cancelButtonClasses: 'btn-secondary',
+    locale: {
+      format: 'MM/DD/YYYY',
+      separator: ' to ',
+      applyLabel: 'Submit',
+      cancelLabel: 'Clear',
+      fromLabel: 'From',
+      toLabel: 'To',
+      customRangeLabel: 'Custom',
+      daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      monthNames: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+      ],
+      firstDay: 1
+    }
+  };
+
+  var optionSet2 = {
+    startDate: dayjs().subtract(7, 'days'),
     endDate: dayjs(),
     minDate: '01/01/2012',
     maxDate: '12/31/2025',
@@ -1880,7 +1993,8 @@ function init_CustomNotification() {
 
   CustomTabs();
 
-  var tabid = (idname = '');
+  var idname = '';
+  var tabid = '';
 
   $(document).on('click', '.notification_close', function (e) {
     idname = $(this).parent().parent().attr('id');
@@ -2133,7 +2247,7 @@ function init_charts() {
   // Line chart
 
   if ($('#lineChart').length) {
-    var ctx = document.getElementById('lineChart');
+    const ctx = document.getElementById('lineChart');
     var lineChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -2169,7 +2283,7 @@ function init_charts() {
   // Bar chart
 
   if ($('#mybarChart').length) {
-    var ctx = document.getElementById('mybarChart');
+    const ctx = document.getElementById('mybarChart');
     var mybarChart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -2205,8 +2319,8 @@ function init_charts() {
   // Doughnut chart
 
   if ($('#canvasDoughnut').length) {
-    var ctx = document.getElementById('canvasDoughnut');
-    var data = {
+    const ctx = document.getElementById('canvasDoughnut');
+    const data = {
       labels: ['Dark Grey', 'Purple Color', 'Gray Color', 'Green Color', 'Blue Color'],
       datasets: [
         {
@@ -2227,8 +2341,8 @@ function init_charts() {
   // Radar chart
 
   if ($('#canvasRadar').length) {
-    var ctx = document.getElementById('canvasRadar');
-    var data = {
+    const ctx = document.getElementById('canvasRadar');
+    const data = {
       labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
       datasets: [
         {
@@ -2262,8 +2376,8 @@ function init_charts() {
 
   // Pie chart
   if ($('#pieChart').length) {
-    var ctx = document.getElementById('pieChart');
-    var data = {
+    const ctx = document.getElementById('pieChart');
+    const data = {
       datasets: [
         {
           data: [120, 50, 140, 180, 100],
@@ -2286,8 +2400,8 @@ function init_charts() {
   // PolarArea chart
 
   if ($('#polarArea').length) {
-    var ctx = document.getElementById('polarArea');
-    var data = {
+    const ctx = document.getElementById('polarArea');
+    const data = {
       datasets: [
         {
           data: [120, 50, 140, 180, 100],
@@ -2336,7 +2450,8 @@ function init_calendar() {
     m = date.getMonth(),
     y = date.getFullYear(),
     started,
-    categoryClass;
+    categoryClass,
+    ended;
 
   var calendar = $('#calendar').fullCalendar({
     header: {
@@ -2693,7 +2808,7 @@ function init_echarts() {
   //echart Bar
 
   if ($('#mainb').length) {
-    var echartBar = echarts.init(document.getElementById('mainb'), theme);
+    const echartBar = echarts.init(document.getElementById('mainb'), theme);
 
     echartBar.setOption({
       title: {
@@ -3668,7 +3783,7 @@ function init_echarts() {
   //echart Bar Horizontal
 
   if ($('#echart_bar_horizontal').length) {
-    var echartBar = echarts.init(document.getElementById('echart_bar_horizontal'), theme);
+    const echartBar = echarts.init(document.getElementById('echart_bar_horizontal'), theme);
 
     echartBar.setOption({
       title: {

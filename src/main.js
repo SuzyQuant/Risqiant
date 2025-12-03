@@ -139,11 +139,7 @@ createDayjsWithClone.prototype = dayjs.prototype;
 createDayjsWithClone.fn = dayjs.prototype;
 
 // Add moment.js API compatibility methods
-dayjs.prototype.format = dayjs.prototype.format;
-dayjs.prototype.startOf = dayjs.prototype.startOf;
-dayjs.prototype.endOf = dayjs.prototype.endOf;
-dayjs.prototype.add = dayjs.prototype.add;
-dayjs.prototype.subtract = dayjs.prototype.subtract;
+// These assignments are redundant as dayjs already has these methods natively.
 
 // Make Day.js available globally IMMEDIATELY
 window.dayjs = createDayjsWithClone;

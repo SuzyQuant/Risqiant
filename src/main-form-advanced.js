@@ -54,6 +54,7 @@ window.waitForLibraries = function (libraries, callback, timeout = 5000) {
     } else if (Date.now() - startTime < timeout) {
       setTimeout(check, 50);
     } else {
+      console.error(
         'Timeout waiting for libraries:',
         libraries.filter(
           lib => typeof window[lib] === 'undefined' && typeof globalThis[lib] === 'undefined'

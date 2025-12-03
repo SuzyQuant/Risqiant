@@ -9,10 +9,10 @@ if (typeof window !== 'undefined') {
   // Additional assignment methods for stricter browsers
   globalThis.jQuery = globalThis.$ = $;
 
-  // Force assignment to global scope (Safari compatibility)
-  if (typeof global !== 'undefined') {
-    global.jQuery = global.$ = $;
-  }
+  // Force assignment to global scope (Node.js compatibility - removed as globalThis is sufficient)
+  // if (typeof global !== 'undefined') {
+  //   global.jQuery = global.$ = $;
+  // }
 
   // Verify the assignment worked
   if (!window.jQuery || !window.$) {
