@@ -13,13 +13,6 @@ RELEASE_NOTES_2.1.0.md
 docs/
 README_CN.md
 
-# Test files
-tests/
-production/debug-test.html
-production/browser-test.html
-production/csp-template.html
-production/sidebar_test.html
-
 # Build artifacts
 dist/
 *.tgz

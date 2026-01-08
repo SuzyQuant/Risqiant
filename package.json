@@ -1,8 +1,8 @@
 {
-  "name": "gentelella",
-  "version": "2.1.1",
+  "name": "risqiant",
+  "version": "2.2.0",
   "type": "module",
-  "description": "Gentelella Admin is a free to use Bootstrap admin template",
+  "description": "RISQIANT - Continuous, Autonomous Risk & Compliance Security Manager",
   "scripts": {
     "dev": "vite --clearScreen false",
     "dev:watch": "./dev-watch.sh",
@@ -56,7 +56,7 @@
     "rollup-plugin-visualizer": "^6.0.3",
     "sass": "^1.92.1",
     "terser": "^5.44.0",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "vite": "^7.1.5"
   },
   "dependencies": {
