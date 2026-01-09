@@ -3,7 +3,6 @@ npm-debug.log
 node_modules
 .sass-cache
 CLAUDE.md
-tech-stack.md
 
 # Build outputs
 dist/

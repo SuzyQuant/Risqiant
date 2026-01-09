@@ -3013,7 +3013,7 @@ function init_echarts() {
       calculable: true,
       series: [
         {
-          name: '漏斗图',
+          name: 'Funnel Chart',
           type: 'funnel',
           width: '40%',
           data: [
@@ -4044,7 +4044,7 @@ function init_echarts() {
       calculable: true,
       series: [
         {
-          name: '访问来源',
+          name: 'Access Source',
           type: 'pie',
           radius: '55%',
           center: ['50%', '48%'],
@@ -4116,7 +4116,7 @@ function init_echarts() {
         itemGap: 20,
         textStyle: {
           color: 'rgba(30,144,255,0.8)',
-          fontFamily: '微软雅黑',
+          fontFamily: 'sans-serif',
           fontSize: 35,
           fontWeight: 'bolder'
         }
