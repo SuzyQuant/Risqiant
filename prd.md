@@ -12,9 +12,13 @@ ________________________________________
 ________________________________________
 3. Functional Requirements
 3.1 Security & Risk Assessment Module
-•	Attack Surface Scanning: Continuous identification of external/internal assets.
-•	Vulnerability Management: Automated scanning and prioritization based on business impact and data sensitivity.
-•	Risk Register: A centralized log where findings are automatically mapped to business risks, treatment options, and owners.
+•	**Attack Surface Scanning:** Continuous identification of external/internal assets.
+    *   *Dashboard Widgets:* External IP count, Open Ports trend, Domain discovery timeline, Exposed Cloud Buckets.
+•	**Vulnerability Management:** Automated scanning and prioritization based on business impact and data sensitivity.
+    *   *Dashboard Widgets:* CVE Severity breakdown, MTTR (Mean Time to Remediate), Top Vulnerable Assets, Patch compliance status.
+•	**Risk Register:** A centralized log where findings are automatically mapped to business risks, treatment options, and owners.
+    *   *Dashboard Widgets:* Risk Heatmap (Impact vs. Likelihood), Residual Risk Score gauge, Top Strategic Risks, Mitigation Progress.
+
 3.2 Compliance Automation Engine
 •	Framework Library: Native support for SOC 2 (Type 1 & 2), PCI DSS, CMMC L2 (NIST 800-171), and ISO 27001:2022.
 •	Cross-Framework Mapping: Ability to map one technical control to multiple requirements (e.g., a password policy satisfying SOC 2 and ISO 27001).
@@ -27,6 +31,7 @@ ________________________________________
 •	AI-Generated Narratives: Automatically draft Section III narratives for SOC 2 or System Security Plans (SSP) for CMMC using posture data.
 •	AI Remediation Plans: Generate context-aware CLI commands or Terraform scripts to fix identified vulnerabilities.
 •	Verification of Fixes: AI-driven confirmation that a remediation action successfully closed the gap.
+•	**Autonomous Research Agent:** Uses a headless browser (Playwright) running on Bun 1.3 to navigate SaaS portals, capture evidence screenshots, and verify UI-based controls autonomously.
 ________________________________________
 4. Framework-Specific Requirements
 Framework	Key Feature Requirement
@@ -54,11 +59,18 @@ o	Compliance (SOC 2, PCI-DSS, CMMC, ISO 27001)
 o	Evidence Library
 o	Remediation Center (Lighthouse AI)
 ________________________________________
-6. Technical Requirements & AI Logic
-6.1 Data Ingestion
+6. Technical Requirements & AI Logic (PHANTOM+ Stack)
+6.1 Modern Architecture
+•	**Frontend:** Next.js 16 (React 19) with Bootstrap 5 and SASS modules. Use `Vite` for rapid prototyping but aim for Next.js production builds.
+•	**Backend API:** `Hono` web framework running on `Bun 1.3` for ultra-low latency response times.
+•	**Database:** PostgreSQL 18.1 accessed via `Prisma 7` (Rust-free, TypeScript native).
+•	**Identity:** `Authentik` for SSO and RBAC management.
+
+6.2 Data Ingestion
 •	API-First: All evidence collection must be performed via API integrations to ensure "manual screenshots" are eliminated.
 •	Normalization: Telemetry from different vendors (e.g., AWS Inspector vs. Tenable) must be normalized into a single schema.
-6.2 AI Prompt Engineering Goals (for LLM integration)
+
+6.3 AI Prompt Engineering Goals (for LLM integration)
 •	Context Injection: When generating a remediation plan, the AI must receive: (1) The specific vulnerability, (2) The asset metadata, (3) The compliance framework requirement.
 •	Narrative Generation: The AI must use "Lighthouse AI" logic to transform technical state (e.g., "MFA is enabled for 100% of users") into auditor-friendly prose.
 ________________________________________
@@ -69,8 +81,7 @@ ________________________________________
 •	Audit Pass Rate: Zero findings for automated controls during external assessments.
 ________________________________________
 8. Implementation Roadmap
-•	Phase 1: Core Risk & Vulnerability scanning + Dashboard setup.
-•	Phase 2: SOC 2 & ISO 27001 automated mapping and evidence collectors.
-•	Phase 3: Lighthouse AI Narrative and Remediation engine integration.
+•	Phase 1: Core Risk & Vulnerability scanning + Dashboard setup (Prototype Complete).
+•	Phase 2: SOC 2 & ISO 27001 automated mapping and evidence collectors (Prototype In-Progress).
+•	Phase 3: Lighthouse AI Narrative and Remediation engine integration (Requires Backend).
 •	Phase 4: PCI DSS and CMMC L2 specialized modules.
-

@@ -26,7 +26,7 @@
 	<meta name="theme-color" content="rgb(42, 63, 84)">
 	<meta name="msapplication-TileColor" content="rgb(42, 63, 84)">
 
-    <title>Dashboard - RISQIANT</title>
+    <title>Security Dashboard - RISQIANT</title>
 
     <!-- Vite Entry Point - will bundle all styles -->
     <script type="module" src="/src/main-minimal-modern.js"></script>
@@ -50,7 +50,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h4>Security Officer</h4>
+                <h4>Admin User</h4>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -74,6 +74,7 @@
                     <ul class="nav child_menu">
                       <li><a href="compliance_soc2.html">SOC 2</a></li>
                       <li><a href="compliance_pci.html">PCI-DSS</a></li>
+                      <li><a href="compliance_cmmc.html">CMMC L2</a></li>
                       <li><a href="compliance_iso27001.html">ISO 27001</a></li>
                     </ul>
                   </li>
@@ -113,7 +114,7 @@
               <ul class="navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="images/img.jpg" alt="">Admin User
                   </a>
                   <div class="dropdown-menu dropdown-usermenu float-end" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -135,20 +136,13 @@
                       <a class="dropdown-item">
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>System Monitor</span>
+                          <span>System Alert</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
-                          High severity drift detected in S3 bucket configuration...
+                          New high-severity vulnerability detected in production container...
                         </span>
                       </a>
-                    <li class="nav-item">
-                      <div class="text-center">
-                        <a class="dropdown-item">
-                          <strong>See All Alerts</strong>
-                          <i class="fas fa-angle-right"></i>
-                        </a>
-                      </div>
                   </ul>
               </ul>
             </nav>
@@ -158,96 +152,43 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <!-- top tiles -->
-          <div class="row gy-4 mb-4">
-            <div class="col-xl-3 col-md-6 col-sm-6">
-                <div class="card shadow-sm h-100 border-start border-danger border-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                    <i class="fas fa-exclamation-triangle fs-4"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="text-muted text-uppercase mb-1 small">Total Risk Score</h6>
-                                <h4 class="mb-0">742</h4>
-                            </div>
-                        </div>
-                        <div class="mt-2 pt-2 border-top">
-                            <small class="text-danger me-1"><i class="fas fa-arrow-up"></i> 12%</small>
-                            <small class="text-muted">High Risk Alert</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 col-sm-6">
-                <div class="card shadow-sm h-100 border-start border-primary border-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                    <i class="fas fa-tasks fs-4"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="text-muted text-uppercase mb-1 small">Compliance % (Global)</h6>
-                                <h4 class="mb-0">82.4%</h4>
-                            </div>
-                        </div>
-                        <div class="mt-2 pt-2 border-top">
-                            <small class="text-success me-1"><i class="fas fa-arrow-up"></i> 3.5%</small>
-                            <small class="text-muted">Improving Trend</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 col-sm-6">
-                <div class="card shadow-sm h-100 border-start border-warning border-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                    <i class="fas fa-bug fs-4"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="text-muted text-uppercase mb-1 small">Open Vulnerabilities</h6>
-                                <h4 class="mb-0">156</h4>
-                            </div>
-                        </div>
-                        <div class="mt-2 pt-2 border-top">
-                            <small class="text-warning me-1">42 Critical</small>
-                            <small class="text-muted">Requires AI Action</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 col-sm-6">
-                <div class="card shadow-sm h-100 border-start border-info border-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                    <i class="fas fa-file-contract fs-4"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="text-muted text-uppercase mb-1 small">Pending Evidence</h6>
-                                <h4 class="mb-0">12</h4>
-                            </div>
-                        </div>
-                        <div class="mt-2 pt-2 border-top">
-                            <small class="text-info me-1">Auto-collection in progress</small>
-                        </div>
-                    </div>
-                </div>
+          
+          <!-- Top Stats Tiles -->
+          <div class="row" style="display: inline-block;">
+            <div class="tile_count">
+              <div class="col-md-2 col-sm-4  tile_stats_count">
+                <span class="count_top"><i class="fas fa-shield-alt"></i> Security Score</span>
+                <div class="count green">88</div>
+                <span class="count_bottom"><i class="green">4% </i> From last week</span>
+              </div>
+              <div class="col-md-2 col-sm-4  tile_stats_count">
+                <span class="count_top"><i class="fas fa-bug"></i> Vulnerabilities</span>
+                <div class="count">12</div>
+                <span class="count_bottom"><i class="red"><i class="fas fa-sort-asc"></i>3 </i> Critical</span>
+              </div>
+              <div class="col-md-2 col-sm-4  tile_stats_count">
+                <span class="count_top"><i class="fas fa-check-double"></i> Compliance</span>
+                <div class="count">92%</div>
+                <span class="count_bottom"><i class="green"><i class="fas fa-sort-asc"></i>2% </i> SOC 2</span>
+              </div>
+              <div class="col-md-2 col-sm-4  tile_stats_count">
+                <span class="count_top"><i class="fas fa-server"></i> Assets Monitored</span>
+                <div class="count">452</div>
+                <span class="count_bottom"><i class="green"><i class="fas fa-sort-desc"></i>12 </i> New Agents</span>
+              </div>
+              <div class="col-md-2 col-sm-4  tile_stats_count">
+                <span class="count_top"><i class="fas fa-file-contract"></i> Evidence</span>
+                <div class="count">2,315</div>
+                <span class="count_bottom"><i class="green"><i class="fas fa-sort-asc"></i>34% </i> Automated</span>
+              </div>
+              <div class="col-md-2 col-sm-4  tile_stats_count">
+                <span class="count_top"><i class="fas fa-clock"></i> MTTR (Days)</span>
+                <div class="count">4.5</div>
+                <span class="count_bottom"><i class="green"><i class="fas fa-sort-asc"></i>-1.2 </i> Improved</span>
+              </div>
             </div>
           </div>
-          <!-- /top tiles -->
+          <!-- /Top Stats Tiles -->
 
           <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -255,56 +196,71 @@
 
                 <div class="row x_title">
                   <div class="col-md-6">
-                    <h3>Compliance Trend <small>Global Posture (Last 6 Months)</small></h3>
+                    <h3>Risk Assessment Trends <small>Vulnerability Discovery vs. Remediation</small></h3>
                   </div>
                   <div class="col-md-6">
-                    <!-- Date picker removed for simplicity -->
+                    <div class="filter d-flex align-items-center gap-2">
+                      <div class="input-group" id="startDatePicker" data-td-target-input="nearest" data-td-target-toggle="nearest" style="max-width: 160px;">
+                        <input type="text" class="form-control" id="startDateInput" data-td-target="#startDatePicker" placeholder="Start date" readonly />
+                        <span class="input-group-text" data-td-target="#startDatePicker" data-td-toggle="datetimepicker">
+                          <i class="fas fa-calendar"></i>
+                        </span>
+                      </div>
+                      <span class="mx-1">to</span>
+                      <div class="input-group" id="endDatePicker" data-td-target-input="nearest" data-td-target-toggle="nearest" style="max-width: 160px;">
+                        <input type="text" class="form-control" id="endDateInput" data-td-target="#endDatePicker" placeholder="End date" readonly />
+                        <span class="input-group-text" data-td-target="#endDatePicker" data-td-toggle="datetimepicker">
+                          <i class="fas fa-calendar"></i>
+                        </span>
+                      </div>
+    
+                    </div>
                   </div>
                 </div>
 
                 <div class="col-md-9 col-sm-9">
-                  <div id="chart_plot_01" class="demo-placeholder" style="height: 350px;"></div>
+                  <div id="chart_plot_01" class="demo-placeholder"></div>
                 </div>
                 <div class="col-md-3 col-sm-3 bg-white">
                   <div class="x_title">
-                    <h4>Risk by Framework</h4>
+                    <h4>Compliance Status</h4>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="col-md-12 col-sm-12">
-                    <div style="text-align: center; margin-bottom: 15px;">
-                      <canvas id="risk_distribution_chart" height="220"></canvas>
+                    <div>
+                      <p>SOC 2 Type II</p>
+                      <div class="">
+                        <div class="progress progress_sm">
+                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="92" style="width: 92%;"></div>
+                        </div>
+                      </div>
                     </div>
                     <div>
-                      <ul class="list-unstyled top_profiles scroll-view">
-                        <li class="media event">
-                          <a class="pull-left border-aero profile_thumb">
-                            <i class="fas fa-shield-alt aero"></i>
-                          </a>
-                          <div class="media-body">
-                            <a class="title" href="#">SOC 2 Type II</a>
-                            <p><strong>92%</strong> Compliant</p>
-                          </div>
-                        </li>
-                        <li class="media event">
-                          <a class="pull-left border-green profile_thumb">
-                            <i class="fas fa-credit-card green"></i>
-                          </a>
-                          <div class="media-body">
-                            <a class="title" href="#">PCI DSS</a>
-                            <p><strong>85%</strong> Compliant</p>
-                          </div>
-                        </li>
-                        <li class="media event">
-                          <a class="pull-left border-blue profile_thumb">
-                            <i class="fas fa-globe blue"></i>
-                          </a>
-                          <div class="media-body">
-                            <a class="title" href="#">ISO 27001</a>
-                            <p><strong>78%</strong> Compliant</p>
-                          </div>
-                        </li>
-                      </ul>
+                      <p>ISO 27001</p>
+                      <div class="">
+                        <div class="progress progress_sm">
+                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="78" style="width: 78%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-sm-12">
+                    <div>
+                      <p>PCI DSS 4.0</p>
+                      <div class="">
+                        <div class="progress progress_sm">
+                          <div class="progress-bar bg-orange" role="progressbar" data-transitiongoal="45" style="width: 45%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <p>CMMC Level 2</p>
+                      <div class="">
+                        <div class="progress progress_sm">
+                          <div class="progress-bar bg-red" role="progressbar" data-transitiongoal="15" style="width: 15%;"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -317,151 +273,596 @@
           </div>
           <br />
 
-          <!-- Recent Alerts and Critical Vulnerabilities -->
           <div class="row">
+
+
             <div class="col-md-4 col-sm-4">
-              <div class="x_panel">
+              <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
-                  <h4>Recent Security Alerts <small>Audit Log</small></h4>
+                  <h4>Vulnerability Severity</h4>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fas fa-chevron-up"></i></a></li>
-                    <li><a class="close-link"><i class="fas fa-times"></i></a></li>
+                    <li><a class="btn-btn-close-link"><i class="fas fa-times"></i></a></li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <h6>Distribution by CVSS Score</h6>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>Critical</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-red" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
+                          <span class="visually-hidden">10%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span>3</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>High</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                          <span class="visually-hidden">25%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span>15</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>Medium</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                          <span class="visually-hidden">45%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span>42</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>Low</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+                          <span class="visually-hidden">20%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span>12</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+              <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                  <h4>Asset Distribution</h4>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fas fa-chevron-up"></i></a></li>
+                    <li><a class="btn-btn-close-link"><i class="fas fa-times"></i></a></li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table class="" style="width:100%">
+                    <tr>
+                      <th style="width:37%;">
+                        <p>Total: 452</p>
+                      </th>
+                      <th>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                          <p class="">Type</p>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                          <p class="">Share</p>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                      </td>
+                      <td>
+                        <table class="tile_info">
+                          <tr>
+                            <td>
+                              <p><i class="fas fa-square blue"></i>Servers </p>
+                            </td>
+                            <td>45%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fas fa-square green"></i>Containers </p>
+                            </td>
+                            <td>25%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fas fa-square purple"></i>Laptops </p>
+                            </td>
+                            <td>15%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fas fa-square aero"></i>Mobile </p>
+                            </td>
+                            <td>10%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fas fa-square red"></i>IoT </p>
+                            </td>
+                            <td>5%</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-4 col-sm-4">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h4>Quick Actions</h4>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fas fa-chevron-up"></i></a></li>
+                    <li><a class="btn-btn-close-link"><i class="fas fa-times"></i></a></li>
                   </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <div class="dashboard-widget-content">
-                    <ul class="list-unstyled timeline widget">
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h5 class="title">
-                              <a><i class="fas fa-server" style="color: #E74C3C; margin-right: 8px;"></i>High Severity Drift</a>
-                            </h5>
-                            <div class="byline">
-                              <span>12 mins ago</span> by <a>System Monitor</a>
-                            </div>
-                            <p class="excerpt">S3 Bucket "risqiant-prod-logs" detected as public. Lighthouse AI has generated a remediation plan. <a>View Remediation</a></p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h5 class="title">
-                              <a><i class="fas fa-user-shield" style="color: #3498DB; margin-right: 8px;"></i>MFA Disabled</a>
-                            </h5>
-                            <div class="byline">
-                              <span>45 mins ago</span> by <a>IAM Sentinel</a>
-                            </div>
-                            <p class="excerpt">User "admin_dev" disabled MFA. Auto-reverted by policy enforcement. Incident ticket #SEC-2026-004 created.</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h5 class="title">
-                              <a><i class="fas fa-bug" style="color: #F39C12; margin-right: 8px;"></i>New Vulnerability</a>
-                            </h5>
-                            <div class="byline">
-                              <span>2 hours ago</span> by <a>Scanner</a>
-                            </div>
-                            <p class="excerpt">CVE-2026-1045 detected in container image `frontend:v2.4`. CVSS Score: 7.8 (High). <a>View Details</a></p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h5 class="title">
-                              <a><i class="fas fa-check-circle" style="color: #26B99A; margin-right: 8px;"></i>Compliance Check</a>
-                            </h5>
-                            <div class="byline">
-                              <span>4 hours ago</span> by <a>SOC 2 Automation</a>
-                            </div>
-                            <p class="excerpt">Daily SOC 2 automated evidence collection completed. 98% of controls verified successfully.</p>
-                          </div>
-                        </div>
-                      </li>
+                    <ul class="quick-list">
+                      <li><i class="fas fa-search"></i><a href="vulnerabilities.html">Run Full Scan</a></li>
+                      <li><i class="fas fa-file-export"></i><a href="compliance_soc2.html">Export SOC 2 Report</a></li>
+                      <li><i class="fas fa-user-plus"></i><a href="#">Add Auditor Access</a></li>
+                      <li><i class="fas fa-plug"></i><a href="#">Connect AWS Account</a></li>
+                      <li><i class="fas fa-robot"></i><a href="remediation.html">Ask Lighthouse AI</a></li>
                     </ul>
+
+                    <div class="sidebar-widget">
+                        <h6>Audit Readiness</h6>
+                        <div id="profile_completion_gauge" style="width:160px;height:120px;margin:0 auto;"></div>
+                        <div class="goal-wrapper">
+                          <span class="goal-value float-start">88%</span>
+                          <span id="goal-text" class="goal-value float-end">100%</span>
+                        </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Critical Vulnerabilities Table -->
-            <div class="col-md-8 col-sm-8">
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-4 col-sm-4">
               <div class="x_panel">
                 <div class="x_title">
-                  <h4>Critical Vulnerabilities <small>Prioritized for Remediation</small></h4>
+                  <h4>Security Audit Log</h4>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fas fa-chevron-up"></i></a></li>
-                    <li><a class="close-link"><i class="fas fa-times"></i></a></li>
+                    <li><a class="btn-btn-close-link"><i class="fas fa-times"></i></a></li>
                   </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <div class="table-responsive">
-                    <table class="table table-striped jambo_table bulk_action">
-                      <thead>
-                        <tr class="headings">
-                          <th class="column-title">CVE ID </th>
-                          <th class="column-title">Asset </th>
-                          <th class="column-title">Severity </th>
-                          <th class="column-title">Status </th>
-                          <th class="column-title">Detected </th>
-                          <th class="column-title last"><span class="nobr">Action</span></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr class="even pointer">
-                          <td class=" "><strong class="text-danger">CVE-2026-0142</strong></td>
-                          <td class=" ">prod-db-cluster-01</td>
-                          <td class=" "><span class="badge bg-danger">Critical (9.8)</span></td>
-                          <td class=" "><span class="badge bg-warning text-dark">Pending AI Fix</span></td>
-                          <td class=" ">Jan 08, 2026</td>
-                          <td class=" last"><a href="remediation.html" class="btn btn-sm btn-primary">Remediate</a></td>
-                        </tr>
-                        <tr class="odd pointer">
-                          <td class=" "><strong>CVE-2025-9833</strong></td>
-                          <td class=" ">api-gateway-alb</td>
-                          <td class=" "><span class="badge bg-danger">High (8.2)</span></td>
-                          <td class=" "><span class="badge bg-info">Patch Scheduled</span></td>
-                          <td class=" ">Jan 07, 2026</td>
-                          <td class=" last"><a href="#" class="btn btn-sm btn-secondary">Details</a></td>
-                        </tr>
-                        <tr class="even pointer">
-                          <td class=" "><strong>CVE-2025-9011</strong></td>
-                          <td class=" ">worker-node-04</td>
-                          <td class=" "><span class="badge bg-warning text-dark">Medium (6.5)</span></td>
-                          <td class=" "><span class="badge bg-success">Mitigated</span></td>
-                          <td class=" ">Jan 06, 2026</td>
-                          <td class=" last"><a href="#" class="btn btn-sm btn-secondary">Details</a></td>
-                        </tr>
-                        <tr class="odd pointer">
-                          <td class=" "><strong>Misconfig-S3</strong></td>
-                          <td class=" ">backup-archive-2025</td>
-                          <td class=" "><span class="badge bg-danger">High (8.0)</span></td>
-                          <td class=" "><span class="badge bg-danger">Open</span></td>
-                          <td class=" ">Jan 08, 2026</td>
-                          <td class=" last"><a href="remediation.html" class="btn btn-sm btn-primary">Fix Now</a></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div class="dashboard-widget-content">
+                    <div class="activities-scroll">
+                      <ul class="list-unstyled timeline widget">
+                      <li>
+                        <div class="block">
+                          <div class="block_content">
+                            <h5 class="title">
+                              <a><i class="fas fa-exclamation-triangle" style="color: #E74C3C; margin-right: 8px;"></i>Critical Vulnerability</a>
+                            </h5>
+                            <div class="byline">
+                              <span>2 minutes ago</span> by <a>AWS Inspector</a>
+                            </div>
+                            <p class="excerpt">CVE-2026-1234 detected in production-db-01. Remote Code Execution possible. <a>View Details</a>
+                            </p>
+                          </div>
+                        </div>
+                      <li>
+                        <div class="block">
+                          <div class="block_content">
+                            <h5 class="title">
+                              <a><i class="fas fa-user-shield" style="color: #3498DB; margin-right: 8px;"></i>Policy Change</a>
+                            </h5>
+                            <div class="byline">
+                              <span>15 minutes ago</span> by <a>admin@risqiant.com</a>
+                            </div>
+                            <p class="excerpt">Updated "Password Rotation Policy" to comply with new PCI DSS 4.0 requirements. <a>View Policy</a>
+                            </p>
+                          </div>
+                        </div>
+                      <li>
+                        <div class="block">
+                          <div class="block_content">
+                            <h5 class="title">
+                              <a><i class="fas fa-check-circle" style="color: #26B99A; margin-right: 8px;"></i>Evidence Collected</a>
+                            </h5>
+                            <div class="byline">
+                              <span>32 minutes ago</span> by <a>Cloud Connector</a>
+                            </div>
+                            <p class="excerpt">Automatically collected "User Access Review" logs from Okta for Q1 2026. <a>View Evidence</a>
+                            </p>
+                          </div>
+                        </div>
+                      <li>
+                        <div class="block">
+                          <div class="block_content">
+                            <h5 class="title">
+                              <a><i class="fas fa-robot" style="color: #9B59B6; margin-right: 8px;"></i>AI Remediation</a>
+                            </h5>
+                            <div class="byline">
+                              <span>1 hour ago</span> by <a>Lighthouse AI</a>
+                            </div>
+                            <p class="excerpt">Generated Terraform patch for open S3 bucket "assets-public-temp". <a>Review Plan</a>
+                            </p>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Remediation Velocity Widget -->
+              <div class="x_panel" style="min-height: 450px;">
+                <div class="x_title">
+                  <h4>Remediation Velocity <small>Monthly Overview</small></h4>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fas fa-chevron-up"></i></a></li>
+                    <li><a class="btn-btn-close-link"><i class="fas fa-times"></i></a></li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  
+                  <!-- Chart Area -->
+                  <div style="position: relative; height: 120px; margin-bottom: 20px;">
+                    <svg viewBox="0 0 280 80" style="width: 100%; height: 100%;">
+                      <defs>
+                        <linearGradient id="salesGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" style="stop-color:#26B99A;stop-opacity:0.3" />
+                          <stop offset="100%" style="stop-color:#26B99A;stop-opacity:0.05" />
+                        </linearGradient>
+                      </defs>
+                      <!-- Area under curve -->
+                      <path d="M 20 60 Q 70 40 120 30 T 260 20 L 260 70 L 20 70 Z" fill="url(#salesGradient)"/>
+                      <!-- Main line -->
+                      <path d="M 20 60 Q 70 40 120 30 T 260 20" stroke="#26B99A" stroke-width="2.5" fill="none"/>
+                      <!-- Data points -->
+                      <circle cx="20" cy="60" r="3" fill="#26B99A"/>
+                      <circle cx="70" cy="40" r="3" fill="#26B99A"/>
+                      <circle cx="120" cy="30" r="4" fill="#26B99A"/>
+                      <circle cx="180" cy="25" r="3" fill="#26B99A"/>
+                      <circle cx="260" cy="20" r="3" fill="#26B99A"/>
+                    </svg>
+                    
+                    <!-- Floating info card -->
+                    <div style="position: absolute; top: 5px; right: 10px; background: white; border: 1px solid #E6E9ED; border-radius: 5px; padding: 6px 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                      <div style="color: #73879C; font-size: 9px; margin-bottom: 2px;">This Month</div>
+                      <div style="color: #2A3F54; font-size: 11px; font-weight: 600;">45 Fixed</div>
+                    </div>
+                  </div>
+
+                  <!-- Metrics Grid -->
+                  <div class="row">
+                    
+                    <!-- Weekly Fixes -->
+                    <div class="col-md-6 col-sm-6" style="margin-bottom: 10px;">
+                      <div style="background: #f7f7f7; border: 1px solid #E6E9ED; border-radius: 3px; padding: 12px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                          <div style="display: flex; gap: 3px;">
+                            <div style="width: 5px; height: 5px; background: #26B99A; border-radius: 1px;"></div>
+                            <div style="width: 5px; height: 5px; background: #3498DB; border-radius: 1px;"></div>
+                            <div style="width: 5px; height: 5px; background: #E74C3C; border-radius: 1px;"></div>
+                          </div>
+                        </div>
+                        <h5 style="color: #2A3F54; font-size: 12px; font-weight: 600; margin: 0;">Weekly Fixes</h5>
+                        <p style="color: #73879C; font-size: 10px; margin: 3px 0 0;">12 patches applied</p>
+                      </div>
+                    </div>
+                    
+                    <!-- New Risks -->
+                    <div class="col-md-6 col-sm-6" style="margin-bottom: 10px;">
+                      <div style="background: #f7f7f7; border: 1px solid #E6E9ED; border-radius: 3px; padding: 12px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                          <div style="width: 18px; height: 18px; background: rgba(231, 76, 60, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-bug" style="color: #E74C3C; font-size: 8px;"></i>
+                          </div>
+                        </div>
+                        <h5 style="color: #2A3F54; font-size: 12px; font-weight: 600; margin: 0;">New Risks</h5>
+                        <p style="color: #73879C; font-size: 10px; margin: 3px 0 0;">+8 this month</p>
+                      </div>
+                    </div>
+                    
+                    <!-- Auto-Remediation -->
+                    <div class="col-md-6 col-sm-6" style="margin-bottom: 10px;">
+                      <div style="background: #f7f7f7; border: 1px solid #E6E9ED; border-radius: 3px; padding: 12px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                          <div style="width: 18px; height: 18px; background: rgba(155, 89, 182, 0.1); border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-robot" style="color: #9B59B6; font-size: 8px;"></i>
+                          </div>
+                        </div>
+                        <h5 style="color: #2A3F54; font-size: 12px; font-weight: 600; margin: 0;">Auto-Fixed</h5>
+                        <p style="color: #73879C; font-size: 10px; margin: 3px 0 0;">24 automated</p>
+                      </div>
+                    </div>
+                    
+                    <!-- Risk Reduction -->
+                    <div class="col-md-6 col-sm-6" style="margin-bottom: 10px;">
+                      <div style="background: #f7f7f7; border: 1px solid #E6E9ED; border-radius: 3px; padding: 12px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                          <div style="width: 18px; height: 18px; background: rgba(38, 185, 154, 0.1); border-radius: 3px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-chart-line" style="color: #26B99A; font-size: 8px;"></i>
+                          </div>
+                        </div>
+                        <h5 style="color: #2A3F54; font-size: 12px; font-weight: 600; margin: 0;">Risk Reduction</h5>
+                        <p style="color: #73879C; font-size: 10px; margin: 3px 0 0;">-18.2% risk score</p>
+                      </div>
+                    </div>
+                    
+                  </div>
+
+                </div>
+              </div>
+              <!-- End Sales Statistics Widget -->
+            </div>
+
+
+            <div class="col-md-8 col-sm-8">
+
+              <!-- Recent Orders Section -->
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h4>Active Vulnerabilities <small>Prioritized</small></h4>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fas fa-chevron-up"></i></a></li>
+                        <li><a class="btn-btn-close-link"><i class="fas fa-times"></i></a></li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <div class="recent-orders-scroll">
+                        <div class="table-responsive">
+                          <table class="table table-striped jambo_table bulk_action">
+                          <thead>
+                            <tr class="headings">
+                              <th class="column-title">CVE ID</th>
+                              <th class="column-title">Asset</th>
+                              <th class="column-title">Vulnerability</th>
+                              <th class="column-title">CVSS</th>
+                              <th class="column-title">Status</th>
+                              <th class="column-title">Detected</th>
+                              <th class="column-title no-link last"><span class="nobr">Action</span></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="even pointer">
+                              <td class=" "><strong>CVE-2026-1234</strong></td>
+                              <td class=" ">prod-db-01</td>
+                              <td class=" ">Remote Code Execution</td>
+                              <td class=" "><strong class="text-danger">9.8</strong></td>
+                              <td class=" "><span class="badge bg-danger">Critical</span></td>
+                              <td class=" ">Today</td>
+                              <td class=" last"><a href="#" class="btn btn-sm btn-primary">Fix</a></td>
+                            </tr>
+                            <tr class="odd pointer">
+                              <td class=" "><strong>CVE-2026-5678</strong></td>
+                              <td class=" ">web-lb-02</td>
+                              <td class=" ">SSL/TLS Weak Cipher</td>
+                              <td class=" "><strong class="text-warning">6.5</strong></td>
+                              <td class=" "><span class="badge bg-warning text-dark">Open</span></td>
+                              <td class=" ">Yesterday</td>
+                              <td class=" last"><a href="#" class="btn btn-sm btn-primary">Fix</a></td>
+                            </tr>
+                            <tr class="even pointer">
+                              <td class=" "><strong>Misconfig-01</strong></td>
+                              <td class=" ">aws-s3-assets</td>
+                              <td class=" ">Public Write Access</td>
+                              <td class=" "><strong class="text-danger">9.0</strong></td>
+                              <td class=" "><span class="badge bg-info">Patching</span></td>
+                              <td class=" ">Jan 14</td>
+                              <td class=" last"><a href="#" class="btn btn-sm btn-primary">View</a></td>
+                            </tr>
+                            <tr class="odd pointer">
+                              <td class=" "><strong>CVE-2025-9999</strong></td>
+                              <td class=" ">dev-worker-05</td>
+                              <td class=" ">Log4j Variant</td>
+                              <td class=" "><strong class="text-danger">10.0</strong></td>
+                              <td class=" "><span class="badge bg-success">Mitigated</span></td>
+                              <td class=" ">Jan 13</td>
+                              <td class=" last"><a href="#" class="btn btn-sm btn-secondary">Details</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /Recent Orders Section -->
+
+              <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h4>Threat Origins <small>Geo-IP Analysis</small></h4>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fas fa-chevron-up"></i></a></li>
+                        <li><a class="btn-btn-close-link"><i class="fas fa-times"></i></a></li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <div class="dashboard-widget-content">
+                        <div class="col-md-4 hidden-small">
+                          <h5 class="line_30">12,500 Blocked Requests</h5>
+
+                          <table class="countries_list">
+                            <tbody>
+                              <tr>
+                                <td>Unknown/Proxy</td>
+                                <td class="fs15 fw700 text-end">33%</td>
+                              </tr>
+                              <tr>
+                                <td>Russia</td>
+                                <td class="fs15 fw700 text-end">27%</td>
+                              </tr>
+                              <tr>
+                                <td>China</td>
+                                <td class="fs15 fw700 text-end">16%</td>
+                              </tr>
+                              <tr>
+                                <td>Brazil</td>
+                                <td class="fs15 fw700 text-end">11%</td>
+                              </tr>
+                              <tr>
+                                <td>Other</td>
+                                <td class="fs15 fw700 text-end">10%</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div id="world-map-gdp" class="col-md-8 col-sm-12" style="height:230px;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+
+
+                <!-- Start to do list -->
+                <div class="col-md-6 col-sm-6">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h4>Pending Remediation Tasks <small>Assigned to You</small></h4>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fas fa-chevron-up"></i></a></li>
+                        <li><a class="btn-btn-close-link"><i class="fas fa-times"></i></a></li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                      <div class="">
+                        <ul class="to_do">
+                          <li>
+                            <div class="form-check">
+                              <input type="checkbox" id="todo-item-1" class="form-check-input flat">
+                              <label for="todo-item-1" class="form-check-label">Approve Firewall Rule Change #445</label>
+                            </div>
+                          <li>
+                            <div class="form-check">
+                              <input type="checkbox" id="todo-item-2" class="form-check-input flat">
+                              <label for="todo-item-2" class="form-check-label">Review Exception Request for Legacy App</label>
+                            </div>
+                          <li>
+                            <div class="form-check">
+                              <input type="checkbox" id="todo-item-3" class="form-check-input flat">
+                              <label for="todo-item-3" class="form-check-label">Sign-off on SOC 2 Evidence Collection</label>
+                            </div>
+                          <li>
+                            <div class="form-check">
+                              <input type="checkbox" id="todo-item-4" class="form-check-input flat">
+                              <label for="todo-item-4" class="form-check-label">Investigate Anomalous Login Pattern</label>
+                            </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End to do list -->
+                
+                <!-- System Health Widget -->
+                <div class="col-md-6 col-sm-6">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h4>System Health <small>Services Status</small></h4>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fas fa-chevron-up"></i></a></li>
+                        <li><a class="btn-btn-close-link"><i class="fas fa-times"></i></a></li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="temperature"><b>Status: </b> <span class="text-success">HEALTHY</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> API Gateway</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Evidence Collector</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> AI Engine</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Database Cluster</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Scanner Node 01</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Scanner Node 02</li>
+                            </ul>
+                        </div>
+                      </div>
+
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- end of weather widget -->
+              </div>
             </div>
           </div>
-
         </div>
         <!-- /page content -->
 
         <!-- footer content -->
         <footer>
           <div class="float-end">
-            RISQIANT - Autonomous Security Manager
+            RISQIANT - Continuous Security Platform
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -469,132 +870,177 @@
       </div>
     </div>
 
-    <!-- Chart Logic -->
-    <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-      
-      // Compliance Trend Chart
-      function initializeComplianceChart() {
-        const container = document.getElementById('chart_plot_01');
-        if (!container) return;
-        
-        const canvas = document.createElement('canvas');
-        canvas.width = container.offsetWidth || 800;
-        canvas.height = 350;
-        container.innerHTML = ''; 
-        container.appendChild(canvas);
-        
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
+    <!-- Dashboard Logic -->
+    <script type="module">
+    import { mockData } from '/src/api/mockData.js';
 
-        // Data for Last 6 Months (Jul 2025 - Jan 2026)
-        const chartData = {
-          labels: ['Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025', 'Jan 2026'],
+    // Helper to safely update text content
+    function updateText(selector, value) {
+      const el = document.querySelector(selector);
+      if (el) el.textContent = value;
+    }
+
+    // Initialize Dashboard Data
+    function initDashboard() {
+      // 1. Update Top Stats
+      updateText('.tile_stats_count:nth-child(1) .count', mockData.compliance.globalScore);
+      updateText('.tile_stats_count:nth-child(2) .count', mockData.vulnerabilities.total);
+      updateText('.tile_stats_count:nth-child(3) .count', mockData.compliance.frameworks.soc2 + '%');
+      updateText('.tile_stats_count:nth-child(4) .count', mockData.assets.total);
+      updateText('.tile_stats_count:nth-child(5) .count', mockData.compliance.evidence.total.toLocaleString());
+      updateText('.tile_stats_count:nth-child(6) .count', mockData.remediation.mttr);
+
+      // 2. Update Compliance Progress Bars
+      const frameworks = mockData.compliance.frameworks;
+      document.querySelector('[data-transitiongoal="92"]').style.width = frameworks.soc2 + '%';
+      document.querySelector('[data-transitiongoal="78"]').style.width = frameworks.iso27001 + '%';
+      document.querySelector('[data-transitiongoal="45"]').style.width = frameworks.pci + '%';
+      document.querySelector('[data-transitiongoal="15"]').style.width = frameworks.cmmc + '%';
+
+      // 3. Update Vulnerability Stats (CVSS)
+      // Note: In a real app, we'd dynamically generate the HTML, but for now we update specific bars if they existed with IDs.
+      // Since the current HTML structure for progress bars is complex/static, we'll leave the visual bars as static demos for now,
+      // but we could select them by index if needed.
+
+      // 4. Update Charts
+      initializeDashboardChart();
+      initializeProfileGauge();
+      initializeAssetChart();
+    }
+
+    // Chart: Vulnerability Trends
+    function initializeDashboardChart() {
+      const container = document.getElementById('chart_plot_01');
+      if (!container) return;
+      
+      const canvas = document.createElement('canvas');
+      canvas.width = container.offsetWidth || 800;
+      canvas.height = 400;
+      container.innerHTML = '';
+      container.appendChild(canvas);
+      
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const config = {
+        type: 'line',
+        data: {
+          labels: mockData.vulnerabilities.trend.labels,
           datasets: [{
-            label: 'Overall Compliance %',
-            data: [65, 70, 72, 78, 80, 82.4],
+            label: 'Vulnerabilities Detected',
+            data: mockData.vulnerabilities.trend.detected,
+            borderColor: '#E74C3C',
+            backgroundColor: 'rgba(231, 76, 60, 0.1)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4
+          }, {
+            label: 'Remediated',
+            data: mockData.vulnerabilities.trend.remediated,
             borderColor: '#1ABB9C',
             backgroundColor: 'rgba(26, 187, 156, 0.1)',
             borderWidth: 2,
             fill: true,
             tension: 0.4
-          }, {
-            label: 'Risk Score (Normalized)',
-            data: [85, 80, 78, 70, 65, 60], // Lower is better
-            borderColor: '#E74C3C',
-            backgroundColor: 'rgba(231, 76, 60, 0.0)',
-            borderWidth: 2,
-            borderDash: [5, 5],
-            fill: false,
-            tension: 0.4
           }]
-        };
-
-        const config = {
-          type: 'line',
-          data: chartData,
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                position: 'top',
-              },
-              title: {
-                display: false,
-                text: 'Compliance Trend'
-              }
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
-                max: 100,
-                grid: {
-                  color: 'rgba(0,0,0,0.05)'
-                }
-              },
-              x: {
-                grid: {
-                  color: 'rgba(0,0,0,0.05)'
-                }
-              }
-            }
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top' },
+            title: { display: true, text: 'Vulnerability Lifecycle' }
+          },
+          scales: {
+            y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.1)' } },
+            x: { grid: { color: 'rgba(0,0,0,0.1)' } }
           }
-        };
+        }
+      };
 
-        new Chart(ctx, config);
-      }
+      new Chart(ctx, config);
+    }
 
-      // Risk Distribution Chart
-      function initializeRiskChart() {
-        const canvas = document.getElementById('risk_distribution_chart');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
+    // Chart: Audit Readiness Gauge
+    function initializeProfileGauge() {
+      const gaugeElement = document.getElementById('profile_completion_gauge');
+      if (!gaugeElement) return;
 
-        const data = {
-          labels: ['SOC 2', 'PCI DSS', 'ISO 27001', 'Internal'],
+      const canvas = document.createElement('canvas');
+      canvas.width = 160;
+      canvas.height = 120;
+      gaugeElement.appendChild(canvas);
+      const ctx = canvas.getContext('2d');
+
+      const config = {
+        type: 'doughnut',
+        data: {
           datasets: [{
-            data: [30, 25, 20, 25],
-            backgroundColor: ['#3498DB', '#26B99A', '#9B59B6', '#E74C3C'],
+            data: [mockData.compliance.globalScore, 100 - mockData.compliance.globalScore],
+            backgroundColor: ['#1ABB9C', '#ECF0F1'],
             borderWidth: 0
           }]
-        };
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '75%',
+          plugins: { legend: { display: false }, tooltip: { enabled: false } }
+        }
+      };
 
-        const config = {
-          type: 'doughnut',
-          data: data,
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            cutout: '60%',
-            plugins: {
-              legend: {
-                display: false
-              },
-              tooltip: {
-                enabled: true
-              }
-            }
-          }
-        };
+      new Chart(ctx, config);
+    }
 
-        new Chart(ctx, config);
+    // Chart: Asset Distribution
+    function initializeAssetChart() {
+      const canvas = document.querySelector('.canvasDoughnut');
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      const dist = mockData.assets.distribution;
+
+      const config = {
+        type: 'doughnut',
+        data: {
+          labels: ['Servers', 'Containers', 'Laptops', 'Mobile', 'IoT'],
+          datasets: [{
+            data: [dist.servers, dist.containers, dist.laptops, dist.mobile, dist.iot],
+            backgroundColor: ['#3498DB', '#1ABB9C', '#9B59B6', '#9CC2CB', '#E74C3C'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } }
+        }
+      };
+      
+      new Chart(ctx, config);
+    }
+
+    // Main Entry
+    document.addEventListener('DOMContentLoaded', function() {
+      // Date Picker Logic (Legacy/UI only)
+      const startDatePicker = document.getElementById('startDatePicker');
+      const endDatePicker = document.getElementById('endDatePicker');
+      if (startDatePicker && endDatePicker && window.TempusDominus) {
+         // ... (existing datepicker logic kept simple for brevity if needed, or assumed loaded)
       }
 
-      // Wait for Chart.js
+      // Wait for Chart.js then init
       function waitForChart() {
         if (typeof window.Chart !== 'undefined') {
           try {
-            initializeComplianceChart();
-            initializeRiskChart();
+            initDashboard();
           } catch (error) {
-            console.error("Chart init error:", error);
+            console.error("Dashboard Init Error:", error);
           }
         } else {
           setTimeout(waitForChart, 50);
         }
       }
-      
       waitForChart();
     });
     </script>

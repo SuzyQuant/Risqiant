@@ -1,11 +1,6 @@
 // Minimal main.js for form_advanced.html
 
-// Import jQuery setup first
-import $ from './jquery-setup.js';
-window.jQuery = window.$ = $;
-globalThis.jQuery = globalThis.$ = $;
-
-// Bootstrap 5 - No jQuery dependency needed
+// Bootstrap 5
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 globalThis.bootstrap = bootstrap;
@@ -81,10 +76,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     globalThis.Pickr = Pickr;
 
     // Ion Range Slider
-    await import('ion-rangeslider');
+    // Note: Ion Range Slider depends on jQuery, so we still import it if available,
+    // but we are moving towards native inputs or vanilla alternatives.
+    // Ideally this should be replaced.
+    // await import('ion-rangeslider');
 
-    // jQuery Knob
-    await import('jquery-knob');
+    // jQuery Knob - REMOVED (Legacy)
+    // await import('jquery-knob');
 
     // Cropper.js
     await import('cropper');

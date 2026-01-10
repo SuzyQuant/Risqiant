@@ -4,14 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vulnerability Management - RISQIANT</title>
+    <title>Attack Surface - RISQIANT</title>
     <script type="module" src="/src/main-minimal-modern.js"></script>
   </head>
 
   <body class="nav-md page-index">
     <div class="container body">
       <div class="main_container">
-        <!-- Sidebar -->
+        <!-- Sidebar & Top Nav (Standard Layout) -->
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
@@ -35,8 +35,8 @@
                   <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                   <li><a><i class="fas fa-shield-alt"></i> Risk Assessment <span class="fas fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display: block;">
-                        <li><a href="attack_surface.html">Attack Surface</a></li>
-                        <li class="current-page"><a href="vulnerabilities.html">Vulnerabilities</a></li>
+                        <li class="current-page"><a href="attack_surface.html">Attack Surface</a></li>
+                        <li><a href="vulnerabilities.html">Vulnerabilities</a></li>
                         <li><a href="risk_assessment.html">Risk Register</a></li>
                     </ul>
                   </li>
@@ -44,7 +44,6 @@
                     <ul class="nav child_menu">
                       <li><a href="compliance_soc2.html">SOC 2</a></li>
                       <li><a href="compliance_pci.html">PCI-DSS</a></li>
-                      <li><a href="compliance_cmmc.html">CMMC L2</a></li>
                       <li><a href="compliance_iso27001.html">ISO 27001</a></li>
                     </ul>
                   </li>
@@ -56,7 +55,6 @@
           </div>
         </div>
 
-        <!-- Top Nav -->
         <div class="top_nav">
             <div class="nav_menu">
                 <div class="nav toggle">
@@ -79,63 +77,104 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Vulnerability Management</h3>
+                <h3>Attack Surface Discovery</h3>
               </div>
             </div>
 
             <div class="clearfix"></div>
 
-            <!-- Severity Breakdown -->
+            <!-- Top Stats -->
             <div class="row">
-              <div class="col-md-6 col-sm-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h4>Vulnerabilities by Severity</h4>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <canvas id="chart_severity"></canvas>
-                  </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fas fa-globe text-primary"></i></div>
+                  <div class="count" id="stat-external-ips">0</div>
+                  <h3>External IPs</h3>
+                  <p>Publicly accessible addresses.</p>
                 </div>
               </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fas fa-server text-success"></i></div>
+                  <div class="count" id="stat-domains">0</div>
+                  <h3>Domains</h3>
+                  <p>Root and subdomains discovered.</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fas fa-door-open text-warning"></i></div>
+                  <div class="count" id="stat-ports">0</div>
+                  <h3>Open Ports</h3>
+                  <p>Services listening on public interfaces.</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fas fa-box-open text-danger"></i></div>
+                  <div class="count" id="stat-buckets">0</div>
+                  <h3>Exposed Buckets</h3>
+                  <p>Public cloud storage containers.</p>
+                </div>
+              </div>
+            </div>
 
-              <!-- Trend Line -->
-              <div class="col-md-6 col-sm-12">
+            <!-- Discovery Chart -->
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h4>Discovery vs Remediation</h4>
+                    <h4>Asset Discovery Trend <small>Last 12 Months</small></h4>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <canvas id="chart_trend"></canvas>
+                    <div id="chart_discovery" style="height: 350px;"></div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Active Vulnerabilities Table -->
+            <!-- Asset Table -->
             <div class="row">
               <div class="col-md-12 col-sm-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h4>Active CVEs <small>Prioritized</small></h4>
+                    <h4>Discovered External Assets</h4>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>CVE ID</th>
-                          <th>Asset</th>
-                          <th>Vulnerability Name</th>
-                          <th>CVSS Score</th>
+                          <th>Asset Name</th>
+                          <th>Type</th>
+                          <th>IP Address</th>
+                          <th>Discovery Date</th>
                           <th>Status</th>
-                          <th>Detected</th>
-                          <th>Action</th>
                         </tr>
                       </thead>
-                      <tbody id="vuln-table-body">
-                        <!-- Populated by JS -->
+                      <tbody>
+                        <tr>
+                          <td>api.risqiant.com</td>
+                          <td>Domain</td>
+                          <td>203.0.113.45</td>
+                          <td>2 days ago</td>
+                          <td><span class="badge bg-success">Monitored</span></td>
+                        </tr>
+                        <tr>
+                          <td>dev-db.aws.com</td>
+                          <td>Cloud Instance</td>
+                          <td>198.51.100.12</td>
+                          <td>1 week ago</td>
+                          <td><span class="badge bg-warning">Review</span></td>
+                        </tr>
+                        <tr>
+                          <td>legacy-vpn.corp</td>
+                          <td>Service</td>
+                          <td>192.0.2.88</td>
+                          <td>Today</td>
+                          <td><span class="badge bg-danger">Exposed</span></td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -158,85 +197,52 @@
     <script type="module">
       import { mockData } from '/src/api/mockData.js';
 
-      function initVulnerabilities() {
-        const data = mockData.vulnerabilities;
+      function initAttackSurface() {
+        // Update Stats
+        document.getElementById('stat-external-ips').textContent = mockData.assets.attackSurface.externalIPs;
+        document.getElementById('stat-domains').textContent = mockData.assets.attackSurface.domains;
+        document.getElementById('stat-ports').textContent = mockData.assets.attackSurface.openPorts;
+        document.getElementById('stat-buckets').textContent = mockData.assets.attackSurface.exposedBuckets;
 
-        // 1. Severity Chart
-        initSeverityChart(data);
-
-        // 2. Trend Chart
-        initTrendChart(data.trend);
-
-        // 3. Populate Table
-        const tbody = document.getElementById('vuln-table-body');
-        tbody.innerHTML = '';
-        data.activeList.forEach(vuln => {
-          const row = `<tr>
-            <td><strong>${vuln.id}</strong></td>
-            <td>${vuln.asset}</td>
-            <td>${vuln.name}</td>
-            <td><span class="badge ${getSeverityBadge(vuln.cvss)}">${vuln.cvss}</span></td>
-            <td>${vuln.status}</td>
-            <td>${vuln.detected}</td>
-            <td><a href="#" class="btn btn-sm btn-primary">Fix</a></td>
-          </tr>`;
-          tbody.innerHTML += row;
-        });
+        // Initialize Chart
+        initDiscoveryChart();
       }
 
-      function getSeverityBadge(score) {
-        if(score >= 9.0) return 'bg-danger';
-        if(score >= 7.0) return 'bg-warning';
-        return 'bg-info';
-      }
+      function initDiscoveryChart() {
+        const container = document.getElementById('chart_discovery');
+        if (!container) return;
 
-      function initSeverityChart(data) {
-        const ctx = document.getElementById('chart_severity');
-        if(!ctx) return;
+        const canvas = document.createElement('canvas');
+        canvas.width = container.offsetWidth;
+        canvas.height = 350;
+        container.innerHTML = '';
+        container.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
         new Chart(ctx, {
-          type: 'doughnut',
+          type: 'bar',
           data: {
-            labels: ['Critical', 'High', 'Medium', 'Low'],
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             datasets: [{
-              data: [data.critical, data.high, data.medium, data.low],
-              backgroundColor: ['#E74C3C', '#E67E22', '#F39C12', '#3498DB']
+              label: 'New Assets Discovered',
+              data: mockData.assets.attackSurface.discoveryTrend,
+              backgroundColor: '#26B99A'
             }]
           },
-          options: { responsive: true }
-        });
-      }
-
-      function initTrendChart(trend) {
-        const ctx = document.getElementById('chart_trend');
-        if(!ctx) return;
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: trend.labels,
-            datasets: [
-              {
-                label: 'Detected',
-                data: trend.detected,
-                borderColor: '#E74C3C',
-                tension: 0.4
-              },
-              {
-                label: 'Remediated',
-                data: trend.remediated,
-                borderColor: '#1ABB9C',
-                tension: 0.4
-              }
-            ]
-          },
-          options: { responsive: true }
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+          }
         });
       }
 
       document.addEventListener('DOMContentLoaded', () => {
+        // Simple wait for Chart.js
         const check = setInterval(() => {
           if (typeof window.Chart !== 'undefined') {
             clearInterval(check);
-            initVulnerabilities();
+            initAttackSurface();
           }
         }, 100);
       });
